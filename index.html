@@ -1,10 +1,155 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      background: #0b1020;
+      color: #e9ecf1;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .top {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .avatar {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 22px;
+      color: white;
+      user-select: none;
+    }
+    h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+    .subtitle {
+      margin: 6px 0 0;
+      color: rgba(233,236,241,0.75);
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 780px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: rgba(233,236,241,0.9);
+    }
+    p { margin: 0 0 12px; }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      margin: 6px 6px 0 0;
+      font-size: 13px;
+      color: rgba(233,236,241,0.9);
+    }
+    .links a {
+      color: #9ae6ff;
+      text-decoration: none;
+    }
+    .links a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 18px;
+      color: rgba(233,236,241,0.6);
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello GitHub Pages 🚀</h1>
-  <p>이건 내 첫 GitHub Pages 사이트입니다.</p>
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="avatar">AA</div>
+        <div>
+          <h1>Your Name</h1>
+          <div class="subtitle">Student / Researcher • Seoul, South Korea</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <section>
+          <h2>👋 About</h2>
+          <p>
+            Hi! I'm <strong>Your Name</strong>. I’m interested in machine learning and building practical tools
+            that make research and development faster. Recently, I’ve been exploring efficient fine-tuning,
+            evaluation pipelines, and system design for ML projects.
+          </p>
+          <p>
+            I enjoy turning ideas into clean, working prototypes and sharing what I learn along the way.
+          </p>
+
+          <h2>🎯 What I’m focusing on</h2>
+          <ul>
+            <li>Efficient fine-tuning & model adaptation</li>
+            <li>Evaluation and experiment tracking</li>
+            <li>Readable, reproducible ML code</li>
+          </ul>
+        </section>
+
+        <aside>
+          <h2>🧰 Skills</h2>
+          <div>
+            <span class="pill">Python</span>
+            <span class="pill">PyTorch</span>
+            <span class="pill">Transformers</span>
+            <span class="pill">Linux</span>
+            <span class="pill">Git</span>
+          </div>
+
+          <h2 style="margin-top:16px;">🔗 Links</h2>
+          <div class="links">
+            <p>GitHub: <a href="https://github.com/your-id" target="_blank" rel="noreferrer">@your-id</a></p>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+            <p>CV: <a href="#" target="_blank" rel="noreferrer">Download</a></p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer">
+        © <span id="year"></span> Your Name. Built with GitHub Pages.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
