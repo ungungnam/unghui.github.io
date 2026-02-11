@@ -1,152 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Me</title>
+  <title>Your Name</title>
+  <meta name="description" content="Personal homepage of Your Name." />
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6;
-      background: #0b1020;
-      color: #e9ecf1;
+    :root{
+      --text:#111;
+      --muted:#555;
+      --link:#1772d0;
+      --bg:#fff;
+      --rule:#e6e6e6;
     }
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 20px;
+    html,body{background:var(--bg); color:var(--text); margin:0; padding:0;}
+    body{
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+      line-height: 1.45;
+      font-size: 16px;
     }
-    .card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    a{color:var(--link); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .wrap{max-width: 980px; margin: 0 auto; padding: 42px 22px 60px;}
+    .top{
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap: 26px;
+      align-items:start;
     }
-    .top {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
+    @media (max-width: 760px){
+      .top{grid-template-columns: 1fr; }
+      .photo{max-width: 220px;}
     }
-    .avatar {
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c3aed, #06b6d4);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 22px;
-      color: white;
-      user-select: none;
+    .photo img{
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display:block;
     }
-    h1 {
-      margin: 0;
+    h1{
       font-size: 30px;
+      margin: 0 0 10px;
+      font-weight: 700;
     }
-    .subtitle {
-      margin: 6px 0 0;
-      color: rgba(233,236,241,0.75);
-      font-size: 15px;
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--muted);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-      margin-top: 18px;
+    .links{
+      margin: 10px 0 0;
+      color: var(--muted);
     }
-    @media (max-width: 780px) {
-      .grid { grid-template-columns: 1fr; }
+    .links a{margin-right: 10px; white-space:nowrap;}
+    .section{
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
     }
-    h2 {
+    .section h2{
       margin: 0 0 10px;
       font-size: 18px;
-      color: rgba(233,236,241,0.9);
+      font-weight: 700;
     }
-    p { margin: 0 0 12px; }
-    ul {
-      margin: 0;
-      padding-left: 18px;
+    ul{margin: 8px 0 0; padding-left: 18px;}
+    li{margin: 6px 0;}
+    .pub{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
-    .pill {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      margin: 6px 6px 0 0;
+    .pub-item{
+      padding: 8px 0;
+    }
+    .pub-title{font-weight: 600;}
+    .pub-authors{color: var(--muted);}
+    .pub-venue{color: var(--muted);}
+    .note{color: var(--muted); font-size: 14px;}
+    .footer{
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
       font-size: 13px;
-      color: rgba(233,236,241,0.9);
     }
-    .links a {
-      color: #9ae6ff;
-      text-decoration: none;
-    }
-    .links a:hover { text-decoration: underline; }
-    .footer {
-      margin-top: 18px;
-      color: rgba(233,236,241,0.6);
-      font-size: 13px;
+    /* Optional: nicer smallcaps-ish label */
+    .tag{
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="top">
-        <div class="avatar">AA</div>
-        <div>
-          <h1>Your Name</h1>
-          <div class="subtitle">Student / Researcher • Seoul, South Korea</div>
+  <main class="wrap">
+    <!-- TOP -->
+    <div class="top">
+      <div class="photo">
+        <!-- 1) 여기 사진 파일을 repo에 올리고 파일명만 맞추면 됩니다. -->
+        <img src="profile.jpg" alt="Your Name photo">
+      </div>
+
+      <div>
+        <h1>Your Name</h1>
+        <p class="subtitle">
+          Researcher / Student at <a href="https://www.snu.ac.kr/" target="_blank" rel="noreferrer">Seoul National University</a><br>
+          Interests: Efficient fine-tuning, evaluation, ML systems
+        </p>
+
+        <p>
+          I am a <strong>graduate student</strong> / <strong>researcher</strong> working on
+          <em>efficient adaptation of large language models</em> and
+          <em>reproducible evaluation pipelines</em>.
+          I enjoy building clean tools that make experiments easier to run and results easier to trust.
+        </p>
+
+        <p>
+          Previously, I worked on <em>...</em>. I’m currently interested in
+          <em>parameter-efficient fine-tuning</em>, <em>rank scheduling</em>, and <em>benchmarking</em>.
+        </p>
+
+        <div class="links">
+          <a href="mailto:you@example.com">Email</a> /
+          <a href="https://github.com/your-id" target="_blank" rel="noreferrer">GitHub</a> /
+          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar</a> /
+          <a href="cv.pdf" target="_blank" rel="noreferrer">CV</a> /
+          <a href="https://www.linkedin.com/in/your-id/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
-      </div>
 
-      <div class="grid">
-        <section>
-          <h2>👋 About</h2>
-          <p>
-            Hi! I'm <strong>Your Name</strong>. I’m interested in machine learning and building practical tools
-            that make research and development faster. Recently, I’ve been exploring efficient fine-tuning,
-            evaluation pipelines, and system design for ML projects.
-          </p>
-          <p>
-            I enjoy turning ideas into clean, working prototypes and sharing what I learn along the way.
-          </p>
-
-          <h2>🎯 What I’m focusing on</h2>
-          <ul>
-            <li>Efficient fine-tuning & model adaptation</li>
-            <li>Evaluation and experiment tracking</li>
-            <li>Readable, reproducible ML code</li>
-          </ul>
-        </section>
-
-        <aside>
-          <h2>🧰 Skills</h2>
-          <div>
-            <span class="pill">Python</span>
-            <span class="pill">PyTorch</span>
-            <span class="pill">Transformers</span>
-            <span class="pill">Linux</span>
-            <span class="pill">Git</span>
-          </div>
-
-          <h2 style="margin-top:16px;">🔗 Links</h2>
-          <div class="links">
-            <p>GitHub: <a href="https://github.com/your-id" target="_blank" rel="noreferrer">@your-id</a></p>
-            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-            <p>CV: <a href="#" target="_blank" rel="noreferrer">Download</a></p>
-          </div>
-        </aside>
-      </div>
-
-      <div class="footer">
-        © <span id="year"></span> Your Name. Built with GitHub Pages.
+        <p class="note" style="margin-top:10px;">
+          (Replace the text with your real bio. This layout is intentionally minimal.)
+        </p>
       </div>
     </div>
-  </div>
+
+    <!-- NEWS / UPDATES -->
+    <section class="section">
+      <h2>News</h2>
+      <ul>
+        <li><span class="tag">2026</span> &nbsp; Started a new project on efficient fine-tuning.</li>
+        <li><span class="tag">2025</span> &nbsp; Released code for <a href="#" target="_blank" rel="noreferrer">Project Name</a>.</li>
+      </ul>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section">
+      <h2>Research</h2>
+      <p>
+        My research focuses on making large models easier to adapt and evaluate.
+        I care about <strong>efficiency</strong>, <strong>reproducibility</strong>, and <strong>clean abstractions</strong>.
+      </p>
+      <ul>
+        <li><strong>PEFT & rank scheduling</strong> (e.g., AdaLoRA-style approaches)</li>
+        <li><strong>Evaluation harnesses</strong> and task registries</li>
+        <li><strong>Systems for experiments</strong> (data indexing, caching, templates)</li>
+      </ul>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="section">
+      <h2>Publications</h2>
+      <div class="pub">
+        <div class="pub-item">
+          <div class="pub-title">Paper Title One</div>
+          <div class="pub-authors">Your Name, Coauthor A, Coauthor B</div>
+          <div class="pub-venue">Conference / Journal, 2026</div>
+          <div class="links" style="margin-top:4px;">
+            <a href="#" target="_blank" rel="noreferrer">paper</a> /
+            <a href="#" target="_blank" rel="noreferrer">code</a> /
+            <a href="#" target="_blank" rel="noreferrer">project</a>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-title">Paper Title Two</div>
+          <div class="pub-authors">Your Name, Coauthor C</div>
+          <div class="pub-venue">Workshop, 2025</div>
+          <div class="links" style="margin-top:4px;">
+            <a href="#" target="_blank" rel="noreferrer">paper</a> /
+            <a href="#" target="_blank" rel="noreferrer">code</a>
+          </div>
+        </div>
+      </div>
+      <p class="note">Tip: If you don’t have publications yet, rename this section to “Projects”.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Project Name</strong> — one-line description.
+          <span class="links">
+            <a href="#" target="_blank" rel="noreferrer">code</a> /
+            <a href="#" target="_blank" rel="noreferrer">demo</a>
+          </span>
+        </li>
+        <li>
+          <strong>Another Project</strong> — one-line description.
+          <span class="links">
+            <a href="#" target="_blank" rel="noreferrer">write-up</a>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- TEACHING / TALKS (optional) -->
+    <section class="section">
+      <h2>Talks</h2>
+      <ul>
+        <li><strong>Title</strong>, Venue, 2026. <a href="#" target="_blank" rel="noreferrer">slides</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Your Name · Built with GitHub Pages
+    </div>
+  </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
